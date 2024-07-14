@@ -1,3 +1,5 @@
+"""Perdoo entry file."""
+
 __all__ = [
     "__version__",
     "ARCHIVE_EXTENSIONS",
@@ -23,6 +25,12 @@ IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp")
 
 
 def get_cache_dir() -> Path:
+    """Create and return the path to the cache for Perdoo, supports XDG_CACHE_HOME environment
+    variable.
+
+    Returns:
+        The path to the Perdoo cache folder.
+    """
     cache_home = os.getenv("XDG_CACHE_HOME", default=str(Path.home() / ".cache"))
     folder = Path(cache_home).resolve() / "perdoo"
     folder.mkdir(exist_ok=True, parents=True)
@@ -30,6 +38,12 @@ def get_cache_dir() -> Path:
 
 
 def get_config_dir() -> Path:
+    """Create and return the path to the config directory for Perdoo, supports XDG_CONFIG_HOME
+    environment variable.
+
+    Returns:
+        The path to the Perdoo configuration folder.
+    """
     config_home = os.getenv("XDG_CONFIG_HOME", default=str(Path.home() / ".config"))
     folder = Path(config_home).resolve() / "perdoo"
     folder.mkdir(exist_ok=True, parents=True)
@@ -37,6 +51,12 @@ def get_config_dir() -> Path:
 
 
 def get_data_dir() -> Path:
+    """Create and return the path to the data directory for Perdoo, supports XDG_DATA_HOME
+    environment variable.
+
+    Returns:
+        The path to the Perdoo data folder.
+    """
     data_home = os.getenv("XDG_DATA_HOME", default=str(Path.home() / ".local" / "share"))
     folder = Path(data_home).resolve() / "perdoo"
     folder.mkdir(exist_ok=True, parents=True)
@@ -44,10 +64,20 @@ def get_data_dir() -> Path:
 
 
 def get_project_dir() -> Path:
+    """Returns the directory in which Perdoo is installed.
+
+   Returns:
+       The path to the Perdoo installation folder.
+   """
     return Path(__file__).parent.parent
 
 
 def setup_logging(debug: bool = False) -> None:
+    """Sets up logging for the Perdoo application.
+
+   Args:
+       debug (bool, optional): Whether to enable debug logging.
+   """
     install(show_locals=True, max_frames=6, console=CONSOLE)
     log_folder = get_project_dir() / "logs"
     log_folder.mkdir(parents=True, exist_ok=True)

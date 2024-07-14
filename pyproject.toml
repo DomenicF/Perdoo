@@ -51,6 +51,12 @@ requires-python = ">= 3.8"
 cb7 = [
   "py7zr >= 0.21.1"
 ]
+docs = [
+  "mkdocs >= 1.6.0",
+  "mkdocs-include-markdown-plugin >= 6.2.1",
+  "mkdocs-material >= 9.5.27",
+  "mkdocstrings[python] >= 0.25.1"
+]
 
 [project.scripts]
 Perdoo = "perdoo.__main__:main"
