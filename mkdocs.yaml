@@ -51,7 +51,6 @@ nav:
   - Home: index.md
   - perdoo:
       - Package: perdoo/__init__.md
-      - exceptions: perdoo/exceptions.md
 
 plugins:
   - search
