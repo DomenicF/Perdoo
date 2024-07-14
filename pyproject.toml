@@ -88,7 +88,6 @@ skip-magic-trailing-comma = true
 ignore = [
   "C901",
   "COM812",
-  "D",
   "D107",
   "DTZ",
   "EM101",
