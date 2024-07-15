@@ -1,3 +1,5 @@
+"""Main Perdoo file containing general methods."""
+
 from __future__ import annotations
 
 import logging
@@ -26,6 +28,11 @@ LOGGER = logging.getLogger("perdoo")
 
 
 def parse_arguments() -> Namespace:
+    """Argument parser.
+
+    Returns:
+        Namespace: A new namespace object with parsed arguments.
+    """
     parser = ArgumentParser(prog="Perdoo", allow_abbrev=False)
     parser.version = __version__
     parser.add_argument("--force", action="store_true")
@@ -35,6 +42,12 @@ def parse_arguments() -> Namespace:
 
 
 def convert_collection(path: Path, output: OutputFormat) -> None:
+    """Converts comic archives contained within a given path.
+
+    Args:
+        path (Path): Path to the directory containing comic archives.
+        output (OutputFormat): Comic archive output format.
+    """
     format_, archive_type = {
         OutputFormat.CB7: (".cb7", CB7Archive),
         OutputFormat.CBT: (".cbt", CBTArchive),
